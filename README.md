@@ -67,14 +67,12 @@ Este projeto foi desenvolvido como trabalho prático para a disciplina de Padrõ
 
 ## Diagramas
 
-1 - Diagrama de estados
-*lembrar de  colocar
-2 - Diagrama UML
-*lembrar de colocar IMPORTANTE DEMAIS
+1 - Diagrama UML
+![Diagrama CL](static/imagens/diagramauml.jpeg)
 
 ## Time
-Merlin de Souza Ribeiro Filho - 202211250009 - ribeiro.filho@academico.ipb.edu.br
-Felipe Vasoncelos - matriculafelipe - emailfelipe
+Merlin de Souza Ribeiro Filho
+Felipe Vasoncelos
 
 Instituto Federal de Ciência e Tecnologia da Paraíba, Campus Campina Grande - IFPB/CG
 Engenharia de Computação
