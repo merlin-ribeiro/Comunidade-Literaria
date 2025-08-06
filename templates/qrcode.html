@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="qrcode-container">
+    <h1>QR Code para Retirada</h1>
+
+    <div class="qrcode-card">
+        <h2>{{ livro.titulo }}</h2>
+        <p><strong>Autor:</strong> {{ livro.autor }}</p>
+        <p><strong>Código do Empréstimo:</strong> {{ emprestimo.id }}</p>
+        <p><strong>Validade:</strong> 24 horas</p>
+
+        <div class="qrcode-image">
+            <img src="{{ url_for('gerar_qrcode', tipo='EMPRESTIMO', object_id=emprestimo.id) }}" alt="QR Code para retirada">
+        </div>
+
+        <div class="instructions">
+            <h3>Como usar:</h3>
+            <ol>
+                <li>Leve este QR Code até a estante inteligente</li>
+                <li>Escaneie o código na câmera da estante</li>
+                <li>Retire o livro quando o compartimento for liberado</li>
+                <li>O livro será automaticamente registrado como retirado</li>
+            </ol>
+
+            <div class="warning">
+                <p>⚠️ Este QR Code é de uso único e válido por 24 horas</p>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <a href="{{ url_for('emprestimo') }}" class="btn btn-primary">Voltar para Empréstimos</a>
+
+            <!-- Botão de cancelamento seguro -->
+            <form method="POST" action="{{ url_for('cancelar_emprestimo_qr') }}" style="display: inline;">
+                <input type="hidden" name="emprestimo_id" value="{{ emprestimo.id }}">
+                <button type="submit" class="btn btn-warning">Cancelar Empréstimo</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

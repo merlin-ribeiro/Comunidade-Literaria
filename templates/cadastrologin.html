@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='static/imagens/logo.png') }}" alt="Logo" class="logo-large">
+    </div>
+    <h1>Comunidade Literária</h1>
+    
+    <div class="auth-box">
+        <h2>Login / Cadastro</h2>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form method="POST">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" name="login" class="btn btn-primary">Entrar</button>
+                <button type="submit" name="cadastro" class="btn btn-secondary">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+[file content end]

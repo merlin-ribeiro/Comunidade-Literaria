@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="emprestimo-container">
+    <h1>Empréstimo de Livros</h1>
+
+    <section class="livros-section">
+        <h2>Livros Disponíveis</h2>
+        <div class="livros-grid">
+            {% for livro in livros %}
+                {% if livro.disponivel %}
+                <div class="livro-card">
+                    <h3>{{ livro.titulo }}</h3>
+                    <p><strong>Autor:</strong> {{ livro.autor }}</p>
+                    <p><strong>Gênero:</strong> {{ livro.genero }}</p>
+
+                    <form method="POST">
+                        <input type="hidden" name="livro_id" value="{{ livro.id }}">
+                        <button type="submit" name="solicitar" class="btn btn-primary">
+                            Solicitar Empréstimo (3 créditos)
+                        </button>
+                    </form>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="meus-emprestimos">
+        <h2>Meus Empréstimos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Livro</th>
+                    <th>Status</th>
+                    <th>Data</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for emp in emprestimos %}
+                <tr>
+                    <td>{{ emp.livro.titulo }}</td>
+                    <td>{{ emp.status }}</td>
+                    <td>{{ emp.data_solicitacao|format_datetime }}</td>
+                    <td class="actions">
+                        {% if emp.status == 'pendente' %}
+                            <form method="POST" style="display: inline;">
+                                <input type="hidden" name="emprestimo_id" value="{{ emp.id }}">
+                                <button type="submit" name="cancelar" class="btn btn-small btn-warning">
+                                    Cancelar
+                                </button>
+                            </form>
+                            <a href="{{ url_for('gerar_qrcode', tipo='EMPRESTIMO', object_id=emp.id) }}"
+                               class="btn btn-small btn-primary">
+                                Retirar Livro
+                            </a>
+                        {% elif emp.status == 'retirado' %}
+                            <a href="{{ url_for('gerar_qrcode', tipo='DEVOLUCAO', object_id=emp.id) }}"
+                               class="btn btn-small btn-success">
+                                Devolver Livro
+                            </a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</div>
+
+<style>
+    .actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    .btn-small {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+</style>
+{% endblock %}

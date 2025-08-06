@@ -1,0 +1,609 @@
+:root {
+    --primary-color: #009018;
+    --secondary-color: rgba(0, 144, 24, 0.19);
+    --accent-color: #00d521;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.user-info {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.creditos {
+    font-weight: bold;
+    background-color: var(--secondary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+}
+
+.logout-btn {
+    color: white;
+    text-decoration: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    background-color: var(--danger-color);
+    transition: all 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #c82333;
+}
+
+main {
+    padding: 2rem;
+    min-height: calc(100vh - 120px);
+}
+
+footer {
+    background-color: var(--dark-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Auth Styles */
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.auth-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.auth-box h2 {
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-warning {
+    background-color: var(--warning-color);
+    color: black;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.btn-small {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.9rem;
+}
+
+.alert {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Dashboard Styles */
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.action-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.action-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.action-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Empréstimo Styles */
+.emprestimo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.livros-section {
+    margin-bottom: 3rem;
+}
+
+.livros-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.livro-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.livro-card h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Doação Styles */
+.doacao-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.doacao-form {
+    margin-top: 2rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .user-info {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.5rem;
+    }
+
+    .action-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .livros-grid {
+        grid-template-columns: 1fr;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+/* QR Code Page Styles */
+.qrcode-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.qrcode-card {
+    text-align: center;
+}
+
+.qrcode-image {
+    margin: 2rem auto;
+    padding: 1rem;
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.qrcode-image img {
+    width: 250px;
+    height: 250px;
+}
+
+.instructions {
+    text-align: left;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.instructions ol {
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+
+.warning {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: #fff3cd;
+    color: #856404;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+@media (max-width: 600px) {
+    .qrcode-image img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .qrcode-container {
+        padding: 1rem;
+    }
+}
+
+/* Estilo para o cabeçalho */
+header {
+    background-color: rgba(0, 144, 24, 0.19);
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.home-btn {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.logout-btn {
+    color: white;
+    text-decoration: none;
+    background-color: #e74c3c;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #c0392b;
+}
+
+.creditos {
+    font-weight: bold;
+    color: #f1c40f;
+}
+
+.logo-container {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.logo-large {
+    max-width: 200px;
+    height: auto;
+}
+
+.logo-small {
+    max-width: 40px;
+    height: auto;
+    margin-right: 1rem;
+}
+
+.moderador-btn {
+    color: white;
+    text-decoration: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    background-color: #9b59b6;
+    transition: all 0.3s;
+}
+
+.moderador-btn:hover {
+    background-color: #8e44ad;
+}
+
+/* Status da Tranca */
+.tranca-status {
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.tranca-aberta {
+    color: #28a745;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Badges */
+.badge {
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.badge-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.badge-warning {
+    background-color: #ffc107;
+    color: black;
+}
+
+.doacoes-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.doacoes-container h1 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+/* Estilos da tabela */
+.doacoes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.doacoes-table th {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.doacoes-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.doacoes-table tr:hover {
+    background-color: rgba(0, 144, 24, 0.05);
+}
+
+/* Estilos dos badges de status */
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.badge-pendente {
+    background-color: #FFF3CD;
+    color: #856404;
+}
+
+.badge-aprovado {
+    background-color: #D4EDDA;
+    color: #155724;
+}
+
+.badge-concluido {
+    background-color: #D1ECF1;
+    color: #0C5460;
+}
+
+.badge-rejeitado {
+    background-color: #F8D7DA;
+    color: #721C24;
+}
+
+/* Estilos do botão do QR Code */
+.btn-qrcode {
+    background-color: #17a2b8;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s;
+}
+
+.btn-qrcode:hover {
+    background-color: #138496;
+    transform: translateY(-2px);
+}
+
+.btn-qrcode i {
+    font-size: 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .doacoes-container {
+        padding: 15px;
+    }
+
+    .doacoes-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .doacoes-table th,
+    .doacoes-table td {
+        padding: 8px;
+    }
+}
+
+/* Estilos para o status da tranca */
+.Status.TFrame {
+    background-color: #f8f9fa;
+    border: 2px solid #dc3545;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.StatusAberto.TFrame {
+    background-color: #f8f9fa;
+    border: 2px solid #28a745;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 20px;
+    animation: pulse 2s infinite;
+}
+
+.StatusLabel.TLabel {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.StatusLabelAberto.TLabel {
+    color: #28a745;
+    font-weight: bold;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}

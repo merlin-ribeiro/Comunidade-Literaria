@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="doacoes-container">
+    <h1>Minhas Doações</h1>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <table class="doacoes-table">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Gênero</th>
+                <th>Data</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doacao in doacoes %}
+            <tr>
+                <td>{{ doacao.titulo }}</td>
+                <td>{{ doacao.autor }}</td>
+                <td>{{ doacao.genero }}</td>
+                <td>{{ doacao.data_solicitacao|format_datetime }}</td>
+                <td>
+                    <span class="badge badge-{{ doacao.status }}">
+                        {{ doacao.status|capitalize }}
+                    </span>
+                </td>
+                <td>
+                    {% if doacao.status == 'aprovado' %}
+                        <a href="{{ url_for('gerar_qrcode', tipo='DOACAO', object_id=doacao.id) }}" class="btn-qrcode">
+                        <i class="fas fa-qrcode"></i> QR Code
+                        </a>
+                    {% elif doacao.status == 'concluido' %}
+                        <span class="badge badge-concluido">Concluído</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="6" style="text-align: center;">Nenhuma doação registrada</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,4 @@
+id,email,senha_hash,creditos,tipo
+1,usuario1@exemplo.com,$2b$12$pn0JW9ZJa8qHKM4yamzL3OE0s2ZS0xcfWKnTFQ58rUET275XVxDOi,15,normal
+2,usuario2@exemplo.com,$2b$12$fTJLRtETR2yD5paREeqIV.RaghtBkz7o3RNewbcB/d0McFhg3R..W,3,normal
+3,moderador@exemplo.com,$2b$12$BOFtzhD9Z4KqRsdp6pyKjO3l.wT3R9nt6b516jbwC97KUU/.PxqDy,6,moderador

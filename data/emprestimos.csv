@@ -1,0 +1,2 @@
+id,usuario_id,livro_id,data_solicitacao,data_retirada,status
+1,2,1,2025-08-06T02:27:56.608571,2025-08-06T02:28:42.219843,devolvido

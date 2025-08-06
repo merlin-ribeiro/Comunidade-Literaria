@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="dashboard">
+    <h1>Bem-vindo à Biblioteca Comunitária</h1>
+    
+    <div class="action-cards">
+        <a href="{{ url_for('emprestimo') }}" class="action-card">
+            <h2>Empréstimo</h2>
+            <p>Pegue livros emprestados</p>
+        </a>
+        
+        <a href="{{ url_for('doacao') }}" class="action-card">
+            <h2>Doação</h2>
+            <p>Doe livros para a comunidade</p>
+        </a>
+    </div>
+</div>
+{% endblock %}

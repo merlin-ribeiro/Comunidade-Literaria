@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="moderador-container">
+    <h1>Painel do Moderador</h1>
+    
+    <section class="doacoes-pendentes">
+        <h2>Requisições de Doação</h2>
+        
+        {% if doacoes %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Gênero</th>
+                    <th>Doador</th>
+                    <th>Data</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for doacao in doacoes %}
+                <tr>
+                    <td>{{ doacao.titulo }}</td>
+                    <td>{{ doacao.autor }}</td>
+                    <td>{{ doacao.genero }}</td>
+                    <td>{{ doacao.usuario_id }}</td>
+                    <td>{{ doacao.data_solicitacao }}</td>
+                    <td>
+                        <a href="{{ url_for('aprovar_doacao', doacao_id=doacao.id) }}" class="btn btn-small btn-success">Aprovar</a>
+                        <a href="{{ url_for('rejeitar_doacao', doacao_id=doacao.id) }}" class="btn btn-small btn-warning">Rejeitar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>Não há requisições pendentes</p>
+        {% endif %}
+    </section>
+    
+    <section class="usuarios-list">
+        <h2>Lista de Usuários</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Créditos</th>
+                    <th>Tipo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>{{ usuario.email }}</td>
+                    <td>{{ usuario.creditos }}</td>
+                    <td>{{ usuario.tipo.value }}</td>
+                    <td>
+                        {% if usuario.tipo != UserType.MODERADOR and usuario.tipo != UserType.BANIDO %}
+                            <a href="{{ url_for('banir_usuario', usuario_id=usuario.id) }}" class="btn btn-small btn-danger">Banir</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</div>
+{% endblock %}

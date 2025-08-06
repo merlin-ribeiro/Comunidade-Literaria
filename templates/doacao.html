@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="doacao-container">
+    <h1>Doação de Livros</h1>
+    
+    <div class="doacao-form">
+        <form method="POST">
+            <div class="form-group">
+                <label for="titulo">Título do Livro:</label>
+                <input type="text" id="titulo" name="titulo" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="autor">Autor:</label>
+                <input type="text" id="autor" name="autor" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="genero">Gênero:</label>
+                <input type="text" id="genero" name="genero" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Doar Livro (+9 créditos)</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
