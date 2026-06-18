@@ -65,17 +65,12 @@ Sistema de biblioteca comunitária que oferece:
 
 Este projeto foi desenvolvido como trabalho prático para a disciplina de Padrões de Projeto ministrada pelo professor Katyusco. O objetivo foi aplicar na prática os principais padrões de projeto estudados em sala de aula, demonstrando seus benefícios em um sistema real.
 
-## Diagramas
-
-1 - Diagrama UML
-![Diagrama CL](static/imagens/diagramauml.jpeg)
-
 ## Time
-Merlin de Souza Ribeiro Filho
-Felipe Vasoncelos
+Merlin de Souza Ribeiro Filho, Felipe Vasoncelos
 
 Instituto Federal de Ciência e Tecnologia da Paraíba, Campus Campina Grande - IFPB/CG
-Engenharia de Computação
-Padrões de Projetos - Dr. Katyusco de Farias Santos
+Engenharia de Computação.
+
+Disciplina de Padrões de Projetos - Dr. Katyusco de Farias Santos - 
 2025
   
